@@ -1,0 +1,12 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: gm-panel
+    ports:
+      - "8080:80"
+    volumes:
+      - ./config/generated:/var/www/html/config/generated
+      - ./storage:/var/www/html/storage
+    restart: unless-stopped
